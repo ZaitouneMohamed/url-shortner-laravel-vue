@@ -20,4 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('register', [athentificationController::class , 'register']);
-Route::get('login', [athentificationController::class , 'login']);
+Route::post('login', [athentificationController::class , 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']] ,function() {
+    Route::post('users', [athentificationController::class , 'get_users']);
+    Route::get('profile', [athentificationController::class , 'profile']);
+    Route::get('log_out', [athentificationController::class , 'log_out']);
+
+});
