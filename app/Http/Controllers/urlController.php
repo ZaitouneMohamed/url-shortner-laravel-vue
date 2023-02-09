@@ -56,6 +56,7 @@ class urlController extends Controller
     public function destroy($id) {
         $url = urls::find($id);
         $url->delete();
+        return response()->json('good');
 
     }
 
