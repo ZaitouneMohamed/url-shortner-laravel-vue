@@ -33,12 +33,12 @@
                         <button class="btn btn-danger btn-sm" @click="deleteLink(link.id)">
                             <i class="fas fa-trash"></i>
                         </button>
-                        <button class="btn btn-dark btn-sm">
+                        <button @click="copy(link.id)" class="btn btn-dark btn-sm">
                             <i class="fas fa-copy"></i>
                         </button>
-                        <button class="btn btn-primary btn-sm">
+                        <a :href="link.full_url" target="_blank" class="btn btn-primary btn-sm">
                             <i class="fas fa-arrow-up-right-from-square"></i>
-                        </button>
+                        </a>
                     </p>
                 </div>
             </div>
@@ -58,6 +58,10 @@ const data = reactive({
     links: [],
     url_id:''
 });
+const copy = (id) => {
+    navigator.clipboard.writeText(`http://127.0.0.1:8000/visit/${id}`);
+    alert('copied')
+}
 
 const deleteLink = async (id) => {
     try {
