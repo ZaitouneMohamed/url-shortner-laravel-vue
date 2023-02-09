@@ -4,7 +4,7 @@
 
     <div class="row my-5">
         <div class="col-md-12">
-            <home-vue></home-vue>
+            <home-vue :user_id="{{ auth()->user()->id }}"></home-vue>
         </div>
     </div>
 

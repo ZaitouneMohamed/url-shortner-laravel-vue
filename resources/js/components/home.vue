@@ -1,8 +1,21 @@
 <template>
-    <h1>home component</h1>
+        <div class="row">
+            <createLink></createLink>
+        </div>
 </template>
 
-<script>
+<script setup>
+    import { provide } from 'vue';
+    import createLink from './create.vue'
+
+    provide ('user_id', props.user_id);
+
+    const props = defineProps({
+        user_id:{
+            type: Number,
+            required: true
+        }
+    });
 
 </script>
 
