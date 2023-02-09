@@ -11,13 +11,17 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              accounts
+                @auth
+                    {{auth()->user()->name}}
+                @else
+                    accounts
+                @endauth
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">register</a></li>
-              <li><a class="dropdown-item" href="#">login</a></li>
+              <li><a class="dropdown-item" href="{{route('register')}}">register</a></li>
+              <li><a class="dropdown-item" href="{{route('login')}}">login</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{route('logout')}}">log out</a></li>
             </ul>
           </li>
         </ul>
