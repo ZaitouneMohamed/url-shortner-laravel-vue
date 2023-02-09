@@ -11,6 +11,7 @@ class urlController extends Controller
 
     public function index($id) {
         $urls = urls::where('user_id',$id)->latest()->paginate(4);
+        // $urls = urls::all();
         return response()->json($urls);
     }
 
