@@ -1,5 +1,11 @@
 @extends("layout.app")
 
 @section("content")
-    <p>home page</p>
+
+    <div class="row my-5">
+        <div class="col-md-12">
+            <home-vue></home-vue>
+        </div>
+    </div>
+
 @endsection
